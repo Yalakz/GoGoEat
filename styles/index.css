@@ -1,0 +1,53 @@
+:root {
+  --color-button: #C50000; /* Rouge vif utilisé pour les boutons et en-têtes */
+  --color-white: #FFFFFF; /* Blanc pour l'arrière-plan */
+  --color-Text: #000000; /* Noir pour le texte et les icônes */
+  --color-separateur: #F5F5F5; /* Gris clair pour les séparateurs et arrière-plans */
+}
+body{
+  margin: 0;
+}
+a{
+  text-decoration: none;
+}
+header{
+  display: flex;
+  border-bottom: 1px solid;
+}
+.cont-logo-input{
+  display: flex;
+    justify-content: space-between;
+}
+.cont-logo-img{
+ display: flex;
+ margin-left: 10px;
+}
+.img-logo{
+  position: relative;
+  top: 19px;
+  width: 50px;
+  height: 40px;
+}
+.secondLogo{
+  color: var(--color-button);
+}
+.cont-input-filter{
+  display: flex;
+}
+.myinput{
+  width:300px;
+  height: 40px;
+  border-radius: 30px;
+  border: 1px solid;
+  padding-left: 30px;
+}
+.cont-filter{
+  width: 50px;
+  height: 40px;
+  background-color: var(--color-button);
+  border-radius: 20px;
+  margin-left: 10px;
+}
+header ul {
+  display: flex;
+}
