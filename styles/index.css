@@ -101,6 +101,27 @@ header ul li{
   display: flex;
   justify-content: center;
 }
+/*Footer*/
+footer{
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  background-color: var(--color-button);
+  width: 280px;
+  border-radius: 50px;
+}
+.second-first{
+  display: flex;
+  width: 200px;
+  justify-content: space-between;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  cursor: pointer;
+}
+.second-first img{
+  filter: brightness(0) invert(1);
+}
 @media screen and (max-width: 800px) {
   header ul {
     display: none;
