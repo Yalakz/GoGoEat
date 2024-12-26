@@ -143,5 +143,7 @@ footer{
     overflow-y: auto;
     white-space: nowrap;
   }
-  
+  .myinput{
+    width: 295px;
+  }
 }
