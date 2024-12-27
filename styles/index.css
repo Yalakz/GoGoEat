@@ -115,8 +115,8 @@ footer{
   display: flex;
   width: 200px;
   justify-content: space-between;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding-top: 15px;
+  padding-bottom: 15px;
   cursor: pointer;
 }
 .second-first img{
