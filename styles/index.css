@@ -3,7 +3,6 @@
   --color-button: #C50000; /* Rouge vif utilisé pour les boutons et en-têtes */
   --color-white: #FFFFFF; /* Blanc pour l'arrière-plan */
   --color-Text: #343232; /* Noir pour le texte et les icônes */
-  
 }
 body{
   background-color: var(--color-background);
@@ -97,19 +96,78 @@ header ul li{
   background-color: var(--color-button);
   color: var(--color-white);
 }
+/*Main*/
 .container{
   display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Popular{
+color: var(--color-Text);
+}
+.cont-card{
+  display: flex;
+  gap: 15px;
+}
+.card{
+  display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  background-color: var(--color-white);
+  width: 210px;
+  height: 300px;
+  border-radius: 10px;
+}
+.cont-img-fav{
+  position: relative;
+  left: 80px;
+  cursor: pointer;
+}
+.cont-img-fav img{
+  width: 20px;
+  filter: invert(10%) sepia(100%) saturate(6721%) hue-rotate(16deg) brightness(81%) contrast(119%);
+}
+.cont-titre-categ{
+  position: relative;
+  right: 40px;
+  display: flex;
+  flex-direction: column;
+}
+.span-categ{
+  margin-top: 10px;
+}
+.cont-prix-btn{
+  display: flex;
+  margin-top: 20px;
+}
+.span-prix{
+  position: relative;
+  right: 35px;
+}
+.btn-add{
+  position: relative;
+  left: 45px;
+  bottom: 10px;
+  background-color: var(--color-button);
+  padding: 4px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.btn-add img{
+  filter: brightness(0) invert(1);
 }
 /*Footer*/
 footer{
   position: absolute;
-  bottom: 0;
+  bottom: 5px;
   display: flex;
   justify-content: center;
   background-color: var(--color-button);
   width: 280px;
   border-radius: 50px;
+  
 }
 .second-first{
   display: flex;
@@ -120,6 +178,7 @@ footer{
   cursor: pointer;
 }
 .second-first img{
+  width: 18px;
   filter: brightness(0) invert(1);
 }
 @media screen and (max-width: 800px) {
