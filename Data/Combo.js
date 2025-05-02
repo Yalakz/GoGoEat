@@ -1,23 +1,23 @@
-export const ComboCard = [{
-    IdCombo:"#C01",
-    Combo1:"Burger Simple",
-    Combo2:"Coca-cola",
-    Combo3:"frite",
-    Img:"",
+export const ComboCard = [{   
+        id:"#P001",
+        ProductName:"Brochette poisson",
+        Categorie:"Brochette",
+        img: "../Img/BrochettePoisson.png",
+        Prix: "1500"
 },
-{
-    IdCombo:"#C02",
-    Combo1:"Shawarma",
-    Combo2:"Boisson",
-    Combo3:"Frite",
-    Img:"",
+{   
+        id:"#P002",
+        ProductName:"Brochette Poulet",
+        Categorie:"Brochette",
+        img: "../Img/Brochette Poulet.png",
+        Prix: "1500"
 },
-{
-    IdCombo:"#C03",
-    Combo1:"Burger Cheese",
-    Combo2:"",
-    Combo3:"",
-    Img:"",
+{   
+        id:"#P002",
+        ProductName:"Brochette Viande",
+        Categorie:"Brochette",
+        img: "../Img/BrochetteViande.png",
+        Prix: "1500"
 },{
     IdCombo:"#C04",
     Combo1:"Burger Simple",

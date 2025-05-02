@@ -75,11 +75,15 @@ header ul li{
   color: #343232;
   margin-left: 10px;
 }
+header ul li:hover{
+  color: var(--color-button);
+}
 /*Nav choix*/
 .nav-choix{
   position: relative;
   top: 20px;
   display: flex;
+  margin-bottom: 5px;
 }
 .filter-btn{
   background-color: var(--color-white);
@@ -105,10 +109,12 @@ header ul li{
 
 .Popular{
 color: var(--color-Text);
+
 }
 .cont-card{
-  display: flex;
-  gap: 15px;
+  display: grid;
+         grid-template-columns: repeat(5, 1fr);
+         gap: 15px;
 }
 .card{
   display: flex;
@@ -116,9 +122,13 @@ color: var(--color-Text);
   justify-content: center;
   align-items: center;
   background-color: var(--color-white);
-  width: 210px;
-  height: 300px;
+  width: 120px;
+  height: 170px;
   border-radius: 10px;
+  cursor: pointer;
+}
+.card:hover{
+  background-color: #cabcbc;
 }
 .cont-img-fav{
   position: relative;
@@ -129,29 +139,32 @@ color: var(--color-Text);
   width: 20px;
   filter: invert(10%) sepia(100%) saturate(6721%) hue-rotate(16deg) brightness(81%) contrast(119%);
 }
+.imgCard{
+  width: 70px;
+  height: 70px;
+}
 .cont-titre-categ{
-  position: relative;
-  right: 40px;
+  /*position: relative;
+  right: 40px;*/
   display: flex;
   flex-direction: column;
-}
-.span-categ{
-  margin-top: 10px;
 }
 .cont-prix-btn{
   display: flex;
   margin-top: 20px;
 }
+
+.span-titre{
+  font-size: 0.7rem;
+}
 .span-prix{
-  position: relative;
-  right: 35px;
+  /*position: relative;
+  right: 35px;*/
+  font-size: 0.8rem;
 }
 .btn-add{
-  position: relative;
-  left: 45px;
-  bottom: 10px;
+  width: 20px;
   background-color: var(--color-button);
-  padding: 4px;
   border-radius: 3px;
   cursor: pointer;
 }
@@ -160,7 +173,7 @@ color: var(--color-Text);
 }
 /*Footer*/
 footer{
-  position: absolute;
+  position: fixed;
   bottom: 5px;
   display: flex;
   justify-content: center;
@@ -189,6 +202,16 @@ footer{
     right: 15px;
   }
 }
+@media screen and (max-width: 676px) {
+  .cont-card{
+  display: grid;
+         grid-template-columns: repeat(4, 1fr);
+         gap: 12px;
+}
+.filter-btn{
+  padding: 5px  20px 5px;
+}
+}
 @media screen and (max-width: 580px) {
   header{
     flex-direction: column;
@@ -205,4 +228,19 @@ footer{
   .myinput{
     width: 295px;
   }
+  .cont-card{
+  display: grid;
+         grid-template-columns: repeat(3, 1fr);
+         gap: 12px;
+  }
+}
+@media screen and (max-width: 400px){
+  .cont-card{
+  display: grid;
+         grid-template-columns: repeat(2, 1fr);
+         gap: 10px;
+  }.card{
+  width: 150px;
+  height: 190px;
+}
 }

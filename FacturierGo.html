@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Facture - GoGo Eat</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fff8f0;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #d62828;
+    }
+
+    .logo {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .logo img {
+      width: 100px;
+      height: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+
+    table, th, td {
+      border: 1px solid #ccc;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: left;
+    }
+
+    .btn {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #f77f00;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #d65a00;
+    }
+
+    #facture {
+      margin-top: 30px;
+      background-color: #fafafa;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    @media print {
+      body * {
+        visibility: hidden;
+      }
+      #facture, #facture * {
+        visibility: visible;
+      }
+      #facture {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="styles/index.css">
+</head>
+<body>
+  <div class="container">
+
+    <label>Nom de l'article:</label>
+    <input type="text" id="itemName" placeholder="Burger, Frites..." />
+    <label>Quantité:</label>
+    <input type="number" id="itemQty" value="1" />
+    <label>Prix unitaire (FCFA):</label>
+    <input type="number" id="itemPrice" />
+
+    <button class="btn" onclick="ajouterArticle()">Ajouter à la facture</button>
+
+    <div id="facture">
+      <div class="cont-logo-img">
+                <img class="img-logo" src="GoGo Eat.png" alt="">
+                <h1 class="myLogo">GoGo</h1><h1 class="secondLogo">Eat</h1>
+            </div>
+      
+      <h2>Facture</h2>
+      <table id="factureTable">
+        <thead>
+          <tr>
+            <th>Article</th>
+            <th>Quantité</th>
+            <th>Prix unitaire</th>
+            <th>Sous-total</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+      <h3 id="total">Total : 0 FCFA</h3>
+    </div>
+
+    <button class="btn" onclick="window.print()">Imprimer la facture</button>
+  </div>
+
+  <script>
+    let total = 0;
+
+    function ajouterArticle() {
+      const name = document.getElementById('itemName').value;
+      const qty = parseInt(document.getElementById('itemQty').value);
+      const price = parseInt(document.getElementById('itemPrice').value);
+
+      if (!name || !qty || !price) {
+        alert("Remplis tous les champs !");
+        return;
+      }
+
+      const table = document.querySelector('#factureTable tbody');
+      const row = table.insertRow();
+      row.innerHTML = `
+        <td>${name}</td>
+        <td>${qty}</td>
+        <td>${price} FCFA</td>
+        <td>${qty * price} FCFA</td>
+      `;
+
+      total += qty * price;
+      document.getElementById('total').innerText = "Total : " + total + " FCFA";
+
+      // Réinitialise les champs
+      document.getElementById('itemName').value = '';
+      document.getElementById('itemQty').value = 1;
+      document.getElementById('itemPrice').value = '';
+    }
+  </script>
+</body>
+</html>

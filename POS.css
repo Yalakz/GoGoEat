@@ -1,0 +1,122 @@
+Body{
+
+}
+
+h2{
+    font-size: 0.8rem;
+}
+h6{
+    margin: 2px;
+    margin-left: 6px;
+}
+   .Container-POS{
+    display: flex;
+   }
+   table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+
+    table, th, td {
+      border: 1px solid #ccc;
+    }
+
+    th, td {
+      padding: 5px;
+      text-align: left;
+      font-size: 0.8rem;
+    }
+
+    .btn {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #f77f00;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #d65a00;
+    }
+
+    #facture {
+        position: relative;
+        bottom:20px;
+
+
+      margin-top: 30px;
+      background-color: #fafafa;
+      padding: 20px;
+      border-radius: 10px;
+      
+    }
+
+ @media print {
+  @page {
+    size: 58mm auto;
+    margin: 0;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  #facture {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 61mm; /* zone imprimable */
+  }
+}
+
+
+
+    /*Card POS*/
+    .List-Card{
+         display: grid;
+         grid-template-columns: repeat(8, 1fr);
+         gap: 5px;
+        
+    }
+    .Card-POS{
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+        width: 60px;
+        height: 60px;
+        margin-left: 3px;
+        margin-right: 5px;
+        
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .Card-POS:hover{
+      background-color: #988e8e;
+    }
+    .img-POS{
+       /* margin-left: 10px;*/
+        width: 25px;
+        height: 25px;
+        margin-bottom: 0;
+    }
+    .Nom-Prix-POS{
+      width: 35px;
+      height: 25px;
+    }
+    .Nom-Card-POS{
+        font-size: 0.5rem;
+    }
+    .Pirx-Card-POS{
+        position: relative;
+        bottom: 9px;
+        font-size: 0.5rem;
+    }

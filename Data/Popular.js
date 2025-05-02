@@ -3,35 +3,35 @@ export const PopularCard = [
         id:"#B001",
         ProductName:"Burger simple",
         Categorie:"Burger",
-        img: "../Img/burger simple.jpg",
+        img: "../Img/burgerPh.png",
         Prix: "2000"
     },
     {   
         id:"#S001",
-        ProductName:"Shawarma ",
-        Categorie:"Shawarma",
-        img: "../Img/Shawarma debout.jpg",
+        ProductName:"Brochette poisson",
+        Categorie:"Brochette",
+        img: "../Img/BrochettePoisson.png",
         Prix: "1500"
     },
     {   
         id:"#P001",
-        ProductName:"Pizza Regina",
-        Categorie:"Pizza",
-        img: "../Img/Pizza.jpg",
-        Prix: "6500"
+        ProductName:"Sharwama",
+        Categorie:"Sharwama",
+        img: "../Img/Shawarma.png",
+        Prix: "2000"
     },
      {   
         id:"#P001",
-        ProductName:"Hot Dog",
-        Categorie:"Pain",
-        img: "../Img/hot dog.jpg",
+        ProductName:"Brochette Poulet",
+        Categorie:"Brochette",
+        img: "../Img/Brochette Poulet.png",
         Prix: "1500"
     },
     {   
         id:"#P001",
-        ProductName:"Frite",
+        ProductName:"Banane",
         Categorie:"Portion",
-        img: "../Img/frite.jpg",
+        img: "../Img/Banane.png",
         Prix: "1000"
     },
     

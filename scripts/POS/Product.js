@@ -1,4 +1,4 @@
-export const PoductCard = [{
+export const ProductPOS = [{
     Name:"riz",
     Categorie:"Portion",
     img: "../Img/Riz.png",
