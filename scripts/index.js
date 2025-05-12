@@ -2,33 +2,37 @@ import { PopularCard } from "../Data/Popular.js";
 import { PoductCard } from "../Data/Product.js";
 
 /* === Search Bar Filter === */
-const BarSearch = document.querySelector('.myinput');
+/*=== nav filter ===*/
+const btnFilter = document.querySelectorAll('.filter-btn');
 
-BarSearch.addEventListener('input', function () {
-    const input = BarSearch.value.trim().toLowerCase();
-    const results = PoductCard.filter(p => p.ProductName.toLowerCase().includes(input));
-    const container = document.querySelector('#cont-popular');
+btnFilter.forEach(button => {
+    button.addEventListener('click', () => {
+        const NavName = button.getAttribute('data-name');
+        const Resultfilter = PoductCard.filter(result => result.Categorie == NavName);
 
-    if (results.length > 0) {
-        container.innerHTML = results.map(result => `
-            <div class="card" data-name="${result.ProductName}" data-price="${result.Prix}" data-img="${result.img}">
-                <div class="cont-img">
-                    <img class="imgCard" src="${result.img}" alt="">
-                </div>
-                <div class="cont-titre-categ">
-                    <span class="span-titre">${result.ProductName}</span>
-                </div>
-                <div class="cont-prix-btn">
-                    <span class="span-prix">${result.Prix} Fcfa</span>
-                </div>
-            </div>
-        `).join('');
-    } else {
-        container.innerHTML = 'Aucun produit trouvé';
-    }
-
-    attachAddToCartEvent(); // réattacher les événements click
+        if (Resultfilter.length > 0) {
+            let SearchHtml = '';
+            Resultfilter.forEach(Resultfilteritem => {
+                SearchHtml += `
+                    <div class="card" data-name="${Resultfilteritem.ProductName}" data-price="${Resultfilteritem.Prix}" data-img="${Resultfilteritem.img}">
+                        <div class="cont-img"><img class="imgCard" src="${Resultfilteritem.img}" alt=""></div>
+                        <div class="cont-titre-categ">
+                            <span class="span-titre">${Resultfilteritem.Name}</span>
+                        </div>
+                        <div class="cont-stars"><img class="stars" src="Img/stars/${Resultfilteritem.rate}.png" alt=""></div>
+                        <div class="cont-prix-btn">
+                            <span class="span-prix">${Resultfilteritem.Prix} Fcfa</span>
+                        </div>
+                    </div>
+                `;
+            });
+            document.querySelector('#cont-popular').innerHTML = SearchHtml;
+        } else {
+            document.querySelector('#cont-popular').innerHTML = 'Aucun produit trouvé';
+        }
+    });
 });
+
 
 /* === Popular Cards === */
 let CardPopularHtml = '';

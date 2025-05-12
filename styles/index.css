@@ -148,17 +148,14 @@ header ul li:hover{
 .filter-btn{
   background-color: var(--color-white);
   color: var(--color-Text);
- /* width: 100px;*/
-  /*       top    left      */
   padding: 10px  40px 10px;
   border-radius: 15px;
   margin-left: 5px;
   text-align: center;
   cursor: pointer;
 }
-.filter-btn-js{
+.filter-btn:hover{
   background-color: var(--color-button);
-  color: var(--color-white);
 }
 /*Main*/
 .container{
