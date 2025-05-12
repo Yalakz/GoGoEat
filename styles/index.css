@@ -78,6 +78,66 @@ header ul li{
 header ul li:hover{
   color: var(--color-button);
 }
+.cont-indicator{
+  position: absolute;
+  bottom: 43px;
+  right: 65px;
+  font-size: 0.7rem;
+  width: 15px;
+  height: 15px;
+  background-color: #C50000;
+  color: #FFFFFF;
+  border-radius: 50%;
+  text-align: center;
+}
+/**/
+.Cont-Panier{
+  margin-top: 5px;
+}
+.Card-panier{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-white);
+  width: 300px;
+  height: 70px;
+  border-radius: 10px;
+}
+.img-panier{
+  position: relative;
+  left: 10px;
+  width: 50px;
+  height: 50px;
+}
+.cont-nom-panier{
+  display: flex;
+  flex-direction: column;
+}
+.span-nom-panier{
+  color: var(--color-Text);
+  font-size: 0.8rem;
+  flex: 1;
+  white-space: nowrap;       /* Pas de retour à la ligne */
+  overflow: hidden;          /* Cache le contenu qui dépasse */
+  text-overflow: ellipsis;
+}
+.span-prix-panier{
+  color: var(--color-Text);
+  font-size: 0.8rem;
+}
+.quantity-panier{
+  background-color: var(--color-background);
+  width: 40px;
+  height: 20px;
+  border-radius: 5px;
+  border: none;
+}
+.btn-delete-panier{
+  position: relative;
+  right: 10px;
+  width: 20px;
+  cursor: pointer;
+}
 /*Nav choix*/
 .nav-choix{
   position: relative;
@@ -110,6 +170,9 @@ header ul li:hover{
 .Popular{
 color: var(--color-Text);
 
+}
+.cont-categ-card{
+   
 }
 .cont-card{
   display: grid;
@@ -148,6 +211,9 @@ color: var(--color-Text);
   right: 40px;*/
   display: flex;
   flex-direction: column;
+}
+.stars{
+ width: 50px;
 }
 .cont-prix-btn{
   display: flex;

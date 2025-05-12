@@ -1,95 +1,109 @@
-import {PopularCard} from "../Data/Popular.js";
-import {PoductCard} from "../Data/Product.js";
+import { PopularCard } from "../Data/Popular.js";
+import { PoductCard } from "../Data/Product.js";
 
+/* === Search Bar Filter === */
+const BarSearch = document.querySelector('.myinput');
 
-/*Filter*/
-function filterColor(FilterItem){
-    document.querySelector(`${FilterItem}`).style.backgroundColor = "#C50000";
-    document.querySelector(`${FilterItem}`).style.color = "#FFFFFF";
-};
+BarSearch.addEventListener('input', function () {
+    const input = BarSearch.value.trim().toLowerCase();
+    const results = PoductCard.filter(p => p.ProductName.toLowerCase().includes(input));
+    const container = document.querySelector('#cont-popular');
 
-document.querySelector('.FilterBurger').addEventListener('click', ()=>{
-    const FilterBurger = document.querySelector('.FilterBurger');
-    if(FilterBurger.style.backgroundColor === ""){
-        filterColor('.FilterBurger');
-    }else{
-        FilterBurger.style.color = "#343232";
-        FilterBurger.style.backgroundColor = "";
-    };
-    /*HtmlBurger*/
-
-    let BurgerHtml = '';
-    const filteredBurgers = PoductCard.filter((BurgerItems) => BurgerItems.Categorie === "Burger");
-    filteredBurgers.forEach((BurgerItems)=>{
-        BurgerHtml += `
-        <div class="card">
-                <div class="cont-img-fav"><img src="icon/favori.png" alt=""></div>
-                <div class="cont-img"><img src="${BurgerItems.img}" alt=""></div>
+    if (results.length > 0) {
+        container.innerHTML = results.map(result => `
+            <div class="card" data-name="${result.ProductName}" data-price="${result.Prix}" data-img="${result.img}">
+                <div class="cont-img">
+                    <img class="imgCard" src="${result.img}" alt="">
+                </div>
                 <div class="cont-titre-categ">
-                    <span class="span-titre">${BurgerItems.ProductName}</span>
-                    <span class="span-categ">${BurgerItems.Categorie}</span>
+                    <span class="span-titre">${result.ProductName}</span>
                 </div>
                 <div class="cont-prix-btn">
-                    <span class="span-prix">${BurgerItems.Prix}XOF</span>
-                    <div class="btn-add"><img src="icon/plus.png" alt=""></div>
+                    <span class="span-prix">${result.Prix} Fcfa</span>
                 </div>
             </div>
-        `;
-        
-    });
-    
+        `).join('');
+    } else {
+        container.innerHTML = 'Aucun produit trouvé';
+    }
 
-        document.querySelector('.cont-categ-card').innerHTML= BurgerHtml;
-    
-    
+    attachAddToCartEvent(); // réattacher les événements click
 });
-/*
-document.querySelector().addEventListener('', ()=>{
-    
-})
-document.querySelector().addEventListener('', ()=>{
-    
-})
-document.querySelector().addEventListener('', ()=>{
-    
-})*/
 
-
+/* === Popular Cards === */
 let CardPopularHtml = '';
 
-PopularCard.forEach((PopularItems) =>{
+PopularCard.forEach((PopularItems) => {
     CardPopularHtml += `
-    <div class="card">
-                <div class="cont-img"><img class="imgCard" src="${PopularItems.img}" alt=""></div>
-                <div class="cont-titre-categ">
-                    <span class="span-titre">${PopularItems.ProductName}</span>
-                </div>
-                <div class="cont-prix-btn">
-                    <span class="span-prix">${PopularItems.Prix}Fcfa</span>
-                </div>
-            </div>
+    <div class="card" data-name="${PopularItems.ProductName}" data-price="${PopularItems.Prix}" data-img="${PopularItems.img}">
+        <div class="cont-img"><img class="imgCard" src="${PopularItems.img}" alt=""></div>
+        <div class="cont-titre-categ">
+            <span class="span-titre">${PopularItems.ProductName}</span>
+        </div>
+        <div class="cont-stars"><img class="stars" src="Img/stars/${PopularItems.rate}.png" alt=""></div>
+        <div class="cont-prix-btn">
+            <span class="span-prix">${PopularItems.Prix} Fcfa</span>
+        </div>
+    </div>
     `;
 });
+document.querySelector('#cont-popular').innerHTML = CardPopularHtml;
 
-document.querySelector('#cont-popular').innerHTML= CardPopularHtml;
-
-/*Product */
+/* === Product Cards === */
 let CardProductHtml = '';
 
-
-PoductCard.forEach((PoductItems) =>{
+PoductCard.forEach((PoductItems) => {
     CardProductHtml += `
-   <div class="card">
-                <div class="cont-img"><img class="imgCard" src="${PoductItems.img}" alt=""></div>
-                <div class="cont-titre-categ">
-                    <span class="span-titre">${PoductItems.Name}</span>
-                </div>
-                <div class="cont-prix-btn">
-                    <span class="span-prix">${PoductItems.Prix}Fcfa</span>
-                </div>
-            </div>
+    <div class="card" data-name="${PoductItems.Name}" data-price="${PoductItems.Prix}" data-img="${PoductItems.img}">
+        <div class="cont-img"><img class="imgCard" src="${PoductItems.img}" alt=""></div>
+        <div class="cont-titre-categ">
+            <span class="span-titre">${PoductItems.Name}</span>
+        </div>
+        <div class="cont-stars"><img class="stars" src="Img/stars/${PoductItems.rate}.png" alt=""></div>
+        <div class="cont-prix-btn">
+            <span class="span-prix">${PoductItems.Prix} Fcfa</span>
+        </div>
+    </div>
     `;
 });
+document.querySelector('#cont-Product').innerHTML = CardProductHtml;
 
-document.querySelector('#cont-Product').innerHTML= CardProductHtml;
+/* === Cart Logic === */
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
+function attachAddToCartEvent() {
+    const addToCartButtons = document.querySelectorAll('.card');
+    addToCartButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const name = button.getAttribute('data-name');
+            const price = parseFloat(button.getAttribute('data-price'));
+            const img = button.getAttribute('data-img'); // <-- Correction ici
+
+            const existingItem = cart.find(item => item.name === name);
+
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    img: img,
+                    name: name,
+                    price: price,
+                    quantity: 1
+                });
+            }
+
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCart();
+        });
+    });
+}
+
+function updateCart() {
+    // Additionner toutes les quantités dans le panier
+    const totalQuantity = cart.reduce((sum, item) => sum + item.quantity, 0);
+    document.querySelector('.cont-indicator').textContent = totalQuantity;
+}
+
+// Initialisation des boutons
+attachAddToCartEvent();
+updateCart();

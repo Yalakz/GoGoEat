@@ -25,15 +25,37 @@ document.querySelectorAll('.Card-POS').forEach(card => {
     const qty = 1;
 
     const table = document.querySelector('#factureTable tbody');
-    const row = table.insertRow();
-    row.innerHTML = `
-      <td>${name}</td>
-      <td>${qty}</td>
-      <td>${price} FCFA</td>
-      <td>${qty * price} FCFA</td>
-    `;
+    let found = false;
 
-    total += qty * price;
+    // Vérifier si l'article existe déjà dans le tableau
+    Array.from(table.rows).forEach(row => {
+      if (row.cells[0].innerText === name) {
+        let currentQty = parseInt(row.cells[1].innerText);
+        currentQty += qty;
+        row.cells[1].innerText = currentQty;
+        row.cells[3].innerText = (currentQty * price) + " FCFA";
+        found = true;
+      }
+    });
+
+    // Si l'article n'existe pas, on ajoute une nouvelle ligne
+    if (!found) {
+      const row = table.insertRow();
+      row.innerHTML = `
+        <td>${name}</td>
+        <td>${qty}</td>
+        <td>${price} FCFA</td>
+        <td>${qty * price} FCFA</td>
+      `;
+    }
+
+    // Recalculer le total général
+    total = 0;
+    Array.from(table.rows).forEach(row => {
+      const subtotal = parseInt(row.cells[3].innerText);
+      total += subtotal;
+    });
+
     document.getElementById('total').innerText = "Total : " + total + " FCFA";
   });
 });
