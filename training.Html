@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Panier Firebase</title>
+</head>
+<body>
+  <h2>Ajouter un panier</h2>
+
+  <form id="panierForm">
+    <label>Nom du produit :
+      <input type="text" id="nomProduit" required>
+    </label><br><br>
+
+    <label>Quantité :
+      <input type="number" id="quantiteProduit" required>
+    </label><br><br>
+
+    <label>Prix unitaire :
+      <input type="number" id="prixProduit" required>
+    </label><br><br>
+
+    <button type="submit">Ajouter au panier</button>
+  </form>
+
+  <p id="message"></p>
+
+  <script type="module" src="training.js"></script>
+</body>
+</html>

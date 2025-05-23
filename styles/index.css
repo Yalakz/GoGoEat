@@ -132,12 +132,36 @@ header ul li:hover{
   border-radius: 5px;
   border: none;
 }
+.Cont-Total{
+  background-color: var(--color-white);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 300px;
+  height: 50px;
+  margin-top: 5px;
+}
+.Cont-span-Toal{
+  display: flex;
+  margin-left: 10px;
+}
+.Btn-Valider{
+  background-color: green;
+  color: #FFFFFF;
+  width: 100px;
+  height: 30px;
+  border: none;
+  border-radius: 10px;
+  margin-right: 10px;
+}
+
 .btn-delete-panier{
   position: relative;
   right: 10px;
   width: 20px;
   cursor: pointer;
 }
+/*Fin Panier*/
 /*Nav choix*/
 .nav-choix{
   position: relative;
@@ -156,6 +180,7 @@ header ul li:hover{
 }
 .filter-btn:hover{
   background-color: var(--color-button);
+  color: #FFFFFF;
 }
 /*Main*/
 .container{

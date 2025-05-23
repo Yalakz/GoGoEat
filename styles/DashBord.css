@@ -1,0 +1,82 @@
+:root {
+    --color-background: #dfdddd; /* Gris clair pour les séparateurs et arrière-plans */
+    --color-button: #C50000; /* Rouge vif utilisé pour les boutons et en-têtes */
+    --color-white: #FFFFFF; /* Blanc pour l'arrière-plan */
+    --color-Text: #343232; /* Noir pour le texte et les icônes */
+  }
+  .Cont-Commande{
+    display: grid;
+         grid-template-columns: repeat(5, 1fr);
+         gap: 15px;
+         margin-top: 10px;
+  }
+  .CardDash {
+    background-color: #FFFFFF;
+    width: 150px;
+    min-height: 100px;
+    height: auto;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* CORRECTION ICI */
+}
+.cont-num-imgDash{
+    height: 30px;
+    display: flex;
+    margin-top: 5px;
+    border-bottom: 1px solid ;   
+}
+.img-UserCommand{
+    width: 25px;
+    height: 25px;
+}
+.cont-spandash{
+    display: flex;
+    flex-direction: column;
+    margin-left: 5px;
+}
+.span-dash{
+    color: #797676;
+    font-size: 0.5rem;
+}
+.span-Second, .span-third{
+    font-size: 0.5rem;
+    margin-left: 10px;
+}
+.third{
+    border-top: 1px solid #797676;
+}
+.Cont-fourthy{
+    display: flex;
+    justify-content: center;
+}
+.img-fourthy{
+    width: 19px;
+    margin-top: 5px;
+    margin-left: 15px;
+    cursor: pointer;
+}
+@media screen and (max-width: 831px) {
+    .Cont-Commande{
+        display: grid;
+             grid-template-columns: repeat(4, 1fr);
+             gap: 15px;
+      }
+  }
+  @media screen and (max-width: 660px) {
+    .Cont-Commande{
+        display: grid;
+             grid-template-columns: repeat(3, 1fr);
+             gap: 15px;
+      }
+  }
+  @media screen and (max-width: 480px) {
+    .Cont-Commande{
+        display: grid;
+             grid-template-columns: repeat(2, 1fr);
+             gap: 15px;
+      }
+  }
+  @media screen and (max-width: 400px){
+
+  }

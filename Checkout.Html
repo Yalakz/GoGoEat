@@ -21,22 +21,41 @@
                 </div>
 
         <ul>
-            <a href="./index.html"><li>Acceuil</li></a>
+            <a href="index.html"><li>Acceuil</li></a>
             <a href="Panier.Html"><li>Panier</li><div class="cont-indicator">0</div></a>
             <a href=""><li>Favorite</li></a>
         </ul>
     </header>
     
     <div id="container" class="container">
-        <div class="inner-panier"></div>
-        <div class="Cont-Total">
-            <div class="Cont-span-Toal">
-                <span class="span-Total">Total:</span>
-                <div class="Total"></div>
-            </div>
+        <nav class="nav-choix">
+            <div class="filter-btn" data-name="Jus">Boisson</div>
+            <div class="filter-btn" data-name="Burger">Burger</div>
+            <div class="filter-btn" data-name="Portion">Portion</div>
+            <div class="filter-btn" data-name="Shawarma">Shawarma</div>
+            <div class="filter-btn" data-name="Brochette">Brochette</div>
+        </nav>
+<!--Main-->
+<div class="cont-categ-card">
+    <div class="Popular">
+        <h3 class="Popular">Hot</h3>
+        <div class="cont-card" id="cont-popular">
             
-            <button class="Btn-Valider">Valider</button>
+
         </div>
+        
+</div>
+<!--Product-->
+<div class="Product">
+        <h3 class="h3-Product">Menu</h3>
+        <div class="cont-card" id="cont-Product">
+            
+
+        </div>
+        
+</div>
+    </div>
+    
         
         <footer>
             <div class="second-first">
@@ -49,6 +68,5 @@
     </div>
     
     <script type="module" src="scripts/index.js"></script>
-    <script type="module" src="scripts/panier.js"></script>
 </body>
 </html>
