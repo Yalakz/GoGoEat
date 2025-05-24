@@ -146,7 +146,7 @@ header ul li:hover{
   margin-left: 10px;
 }
 .Btn-Valider{
-  background-color: green;
+  background-color: rgb(72, 219, 72);
   color: #FFFFFF;
   width: 100px;
   height: 30px;
@@ -259,6 +259,52 @@ color: var(--color-Text);
 .btn-add img{
   filter: brightness(0) invert(1);
 }
+/*Chekout*/
+form {
+  background-color: white;
+  padding: 20px;
+  max-width: 500px;
+  margin: auto;
+  margin-top: 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h2 {
+  text-align: center;
+}
+
+label {
+  display: block;
+  margin-top: 15px;
+}
+
+input{
+  width: 100%;
+  padding: 9px;
+  margin-top: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+.Cont-panier-Form{
+  border: 1px solid #ccc;
+}
+button {
+  margin-top: 20px;
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+/*Chekout*/
 /*Footer*/
 footer{
   position: fixed;

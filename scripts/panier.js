@@ -58,3 +58,8 @@ function updateTotal() {
 }
 
 updateCart();
+
+//open checkout
+document.querySelector('.Btn-Valider').addEventListener('click', function(){
+    window.location.href = './Checkout.Html';
+});
