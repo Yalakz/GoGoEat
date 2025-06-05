@@ -61,5 +61,12 @@ updateCart();
 
 //open checkout
 document.querySelector('.Btn-Valider').addEventListener('click', function(){
-    window.location.href = './Checkout.Html';
+    // Remplace le contenu par le loader immédiatement
+    this.innerHTML = `<div class="loader"></div>`;
+    
+    // Redirection après 3 secondes
+    setTimeout(() => {
+        window.location.href = './Checkout.Html';
+    }, 2000);
 });
+
