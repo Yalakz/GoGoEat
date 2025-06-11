@@ -60,3 +60,16 @@ form.addEventListener("submit", async (e) => {
   }
 });
 console.log(cart);
+
+function showSuccess() {
+  const successDiv = document.getElementById("success");
+  successDiv.classList.add("show");
+
+  // Pour rejouer l’animation si on clique plusieurs fois :
+  document.querySelector('#container').innerHTML = successDiv.innerHTML; // "reflow" forcé pour relancer l’animation
+  
+  setTimeout(()=>{
+    window.location.href = './index.Html';
+  },2000)
+}
+showSuccess();
