@@ -389,7 +389,10 @@ button {
 button:hover {
   background-color: #45a049;
 }
-.success-animation { margin:150px auto;}
+.success-animation { 
+  display: none;
+  margin:150px auto;
+}
 
 .checkmark {
     width: 100px;
