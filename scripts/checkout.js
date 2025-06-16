@@ -37,7 +37,20 @@ function showSuccess() {
 
   // Pour rejouer l’animation si on clique plusieurs fois :
   document.querySelector('.form').style.display = "none";
-  document.querySelector('.success-animation').style.display = "flex";
+  document.querySelectorAll('.success-animation, .span-checkmark').forEach(el => {
+    el.style.display = "flex";
+  });
+  
+  setTimeout(()=>{
+    window.location.href = './index.Html';
+  },2000);
+};
+//echec
+function showFail() {
+
+  // Pour rejouer l’animation si on clique plusieurs fois :
+  document.querySelector('.form').style.display = "none";
+  document.querySelector('.Cross-fail').style.display = "flex";
   
   setTimeout(()=>{
     /*window.location.href = './index.Html';*/
@@ -68,6 +81,7 @@ form.addEventListener("submit", async (e) => {
     form.reset();
     
   } catch (error) {
+    showFail();
     console.error("❌ Erreur d'ajout :", error);
   }
 });

@@ -3,6 +3,10 @@
   --color-button: #C50000; /* Rouge vif utilisé pour les boutons et en-têtes */
   --color-white: #FFFFFF; /* Blanc pour l'arrière-plan */
   --color-Text: #343232; /* Noir pour le texte et les icônes */
+  --borderWidth: 7px;
+  --height: 24px;
+  --width: 12px;
+  --borderColor: #78b13f;
 }
 body{
   background-color: var(--color-background);
@@ -18,8 +22,20 @@ header{
   border-bottom: none;
 }
 /*modal*/
+.check {
+  position: relative;
+  bottom: 40px;
+  display: inline-block;
+  transform: rotate(45deg);
+  height: var(--height);
+  width: var(--width);
+  border-bottom: var(--borderWidth) solid var(--borderColor);
+  border-right: var(--borderWidth) solid var(--borderColor);
+}
 .modal-overlay {
+  
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   position: fixed;
@@ -393,7 +409,15 @@ button:hover {
   display: none;
   margin:150px auto;
 }
-
+.span-checkmark{
+  display: none;
+}
+/*echec*/
+.Cross-fail{
+  display: none;
+  flex-direction: column;
+}
+/**/
 .checkmark {
     width: 100px;
     height: 100px;

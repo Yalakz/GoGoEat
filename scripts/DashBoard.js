@@ -14,7 +14,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore();
 
-// 🔴 Mise à jour en temps réel
+// 🔴  Mise à jour en temps réel
 function listenToCommandes() {
   const commandesRef = collection(db, "Commande");
 
