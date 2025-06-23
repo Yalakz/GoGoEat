@@ -19,7 +19,7 @@ btnFilter.forEach(button => {
                         <div class="cont-titre-categ">
                             <span class="span-titre">${Resultfilteritem.Name}</span>
                         </div>
-                        <div class="cont-stars"><img class="stars" src="Img/stars/${Resultfilteritem.rate}.png" alt=""></div>
+                        <div class="cont-stars"><img class="stars" src="Img/stars/${Resultfilteritem.rate}.webp" alt=""></div>
                         <div class="cont-prix-btn">
                             <span class="span-prix">${Resultfilteritem.Prix} Fcfa</span>
                         </div>
@@ -44,7 +44,7 @@ PopularCard.forEach((PopularItems) => {
         <div class="cont-titre-categ">
             <span class="span-titre">${PopularItems.ProductName}</span>
         </div>
-        <div class="cont-stars"><img class="stars" src="Img/stars/${PopularItems.rate}.png" alt=""></div>
+        <div class="cont-stars"><img class="stars" src="Img/stars/${PopularItems.rate}.webp" alt=""></div>
         <div class="cont-prix-btn">
             <span class="span-prix">${PopularItems.Prix} Fcfa</span>
         </div>
@@ -63,7 +63,7 @@ PoductCard.forEach((PoductItems) => {
         <div class="cont-titre-categ">
             <span class="span-titre">${PoductItems.Name}</span>
         </div>
-        <div class="cont-stars"><img class="stars" src="Img/stars/${PoductItems.rate}.png" alt=""></div>
+        <div class="cont-stars"><img class="stars" src="Img/stars/${PoductItems.rate}.webp" alt=""></div>
         <div class="cont-prix-btn">
             <span class="span-prix">${PoductItems.Prix} Fcfa</span>
         </div>
