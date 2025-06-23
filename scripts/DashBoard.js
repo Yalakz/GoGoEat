@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-app.js";
-import { getFirestore, collection, onSnapshot } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-firestore.js";
+import { getFirestore, collection, onSnapshot, doc, deleteDoc} from "https://www.gstatic.com/firebasejs/11.8.1/firebase-firestore.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDrL1yE-q5P5-Glv1BlP3dqk_q7--QgJfw",
@@ -21,8 +21,8 @@ function listenToCommandes() {
   onSnapshot(commandesRef, (querySnapshot) => {
     let commandHtml = "";
 
-    querySnapshot.forEach((doc) => {
-      const data = doc.data();
+    querySnapshot.forEach((docSnap) => {
+      const data = docSnap.data();
       const panier = data.panier || []; // tableau d'articles
       let panierHtml = "";
 
@@ -66,7 +66,7 @@ function listenToCommandes() {
               <div class="Cont-fourthy">
                 <div class="Cont-fourthy-img">
                   <img class="img-fourthy" src="icon/livreur (1).png" alt="">
-                  <img class="img-fourthy" src="icon/supprimer.png" alt="">
+                  <img class="img-fourthy delete-command" src="icon/supprimer.png" alt="" data-id="${docSnap.id}">
                 </div>
               </div>
             </div>
@@ -76,8 +76,29 @@ function listenToCommandes() {
     });
 
     document.querySelector('.Cont-Commande').innerHTML = commandHtml;
+
+    // Ajoute les écouteurs de suppression
+    document.querySelectorAll('.delete-command').forEach(img => {
+      img.addEventListener('click', (e) => {
+        const id = e.target.getAttribute('data-id');
+        if (confirm("Voulez-vous vraiment supprimer cette commande ?")) {
+          deleteCommande(id);
+        }
+      });
+    });
   });
 }
 
-// Lance l'écoute en temps réel
+function deleteCommande(id) {
+  const docRef = doc(db, "Commande", id);
+  deleteDoc(docRef)
+    .then(() => {
+      console.log("Commande supprimée avec succès");
+    })
+    .catch((error) => {
+      console.error("Erreur lors de la suppression :", error);
+    });
+}
+
+// Démarrer l'écoute
 listenToCommandes();

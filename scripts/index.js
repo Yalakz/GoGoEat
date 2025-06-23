@@ -55,6 +55,10 @@ function popup(){
 /* === Cart Logic === */
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
+if (cart.length === 0) {
+    localStorage.removeItem('cart'); // nettoie définitivement si vide
+  }
+
 function attachAddToCartEvent() {
     const addToCartButtons = document.querySelectorAll('.card');
     addToCartButtons.forEach(button => {

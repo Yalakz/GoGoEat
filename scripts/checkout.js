@@ -16,7 +16,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// Panier
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
 function updateCart() {
@@ -30,32 +29,40 @@ function updateCart() {
   document.querySelector('.Cont-panier-Form').innerHTML = cardPanier;
 }
 
+// Recharge les infos panier à l'ouverture
 document.addEventListener("DOMContentLoaded", updateCart);
 
-//
-function showSuccess() {
+// Fonction pour nettoyer le panier
+function clearCart() {
+  cart = [];
+  localStorage.removeItem("cart");
+  updateCart();
+}
 
-  // Pour rejouer l’animation si on clique plusieurs fois :
+// Succès
+function showSuccess() {
   document.querySelector('.form').style.display = "none";
   document.querySelectorAll('.success-animation, .span-checkmark').forEach(el => {
     el.style.display = "flex";
   });
-  
-  setTimeout(()=>{
-    window.location.href = './index.Html';
-  },2000);
-};
-//echec
-function showFail() {
 
-  // Pour rejouer l’animation si on clique plusieurs fois :
+  setTimeout(() => {
+    clearCart(); // Vider proprement
+    window.location.href = './index.Html';
+  }, 2000);
+}
+
+// Échec
+function showFail() {
   document.querySelector('.form').style.display = "none";
   document.querySelector('.Cross-fail').style.display = "flex";
-  
-  setTimeout(()=>{
-    /*window.location.href = './index.Html';*/
-  },2000);
-};
+
+  setTimeout(() => {
+    // Tu peux rediriger si besoin
+    // window.location.href = './index.Html';
+  }, 2000);
+}
+
 // Formulaire
 const form = document.querySelector(".form");
 
@@ -65,7 +72,6 @@ form.addEventListener("submit", async (e) => {
   const NomComplet = document.querySelector('#nom-form').value.trim();
   const NumeroTel = document.querySelector('#tel').value.trim();
   const Quartier = document.querySelector('#Quartier').value.trim();
-  console.log(NomComplet, NumeroTel, Quartier);
 
   try {
     await addDoc(collection(db, "Commande"), {
@@ -76,15 +82,13 @@ form.addEventListener("submit", async (e) => {
       statut: "en cours",
       panier: cart,
     });
+
     console.log("✅ Commande enregistrée !");
     showSuccess();
     form.reset();
-    
+
   } catch (error) {
     showFail();
     console.error("❌ Erreur d'ajout :", error);
   }
 });
-console.log(cart);
-
-
