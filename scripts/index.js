@@ -2,36 +2,7 @@ import { PopularCard } from "../Data/Popular.js";
 import { PoductCard } from "../Data/Product.js";
 
 /* === Search Bar Filter === */
-/*=== nav filter ===*/
-const btnFilter = document.querySelectorAll('.filter-btn');
 
-btnFilter.forEach(button => {
-    button.addEventListener('click', () => {
-        const NavName = button.getAttribute('data-name');
-        const Resultfilter = PoductCard.filter(result => result.Categorie == NavName);
-
-        if (Resultfilter.length > 0) {
-            let SearchHtml = '';
-            Resultfilter.forEach(Resultfilteritem => {
-                SearchHtml += `
-                    <div class="card" data-name="${Resultfilteritem.ProductName}" data-price="${Resultfilteritem.Prix}" data-img="${Resultfilteritem.img}">
-                        <div class="cont-img"><img class="imgCard" src="${Resultfilteritem.img}" alt=""></div>
-                        <div class="cont-titre-categ">
-                            <span class="span-titre">${Resultfilteritem.Name}</span>
-                        </div>
-                        <div class="cont-stars"><img class="stars" src="Img/stars/${Resultfilteritem.rate}.webp" alt=""></div>
-                        <div class="cont-prix-btn">
-                            <span class="span-prix">${Resultfilteritem.Prix} Fcfa</span>
-                        </div>
-                    </div>
-                `;
-            });
-            document.querySelector('#cont-popular').innerHTML = SearchHtml;
-        } else {
-            document.querySelector('#cont-popular').innerHTML = 'Aucun produit trouvé';
-        }
-    });
-});
 
 
 /* === Popular Cards === */
@@ -122,7 +93,37 @@ function updateCart() {
     /*ici*/
     
 };
+/*=== nav filter ===*/
+const btnFilter = document.querySelectorAll('.filter-btn');
 
+btnFilter.forEach(button => {
+    button.addEventListener('click', () => {
+        const NavName = button.getAttribute('data-name');
+        const Resultfilter = PoductCard.filter(result => result.Categorie == NavName);
+
+        if (Resultfilter.length > 0) {
+            let SearchHtml = '';
+            Resultfilter.forEach(Resultfilteritem => {
+                SearchHtml += `
+                    <div class="card" data-name="${Resultfilteritem.ProductName}" data-price="${Resultfilteritem.Prix}" data-img="${Resultfilteritem.img}">
+                        <div class="cont-img"><img class="imgCard" src="${Resultfilteritem.img}" alt=""></div>
+                        <div class="cont-titre-categ">
+                            <span class="span-titre">${Resultfilteritem.Name}</span>
+                        </div>
+                        <div class="cont-stars"><img class="stars" src="Img/stars/${Resultfilteritem.rate}.webp" alt=""></div>
+                        <div class="cont-prix-btn">
+                            <span class="span-prix">${Resultfilteritem.Prix} Fcfa</span>
+                        </div>
+                    </div>
+                `;
+            });
+            document.querySelector('#cont-popular').innerHTML = SearchHtml;
+            attachAddToCartEvent();
+        } else {
+            document.querySelector('#cont-popular').innerHTML = 'Aucun produit trouvé';
+        }
+    });
+});
 // Initialisation des boutons
 attachAddToCartEvent();
 updateCart();

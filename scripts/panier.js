@@ -3,7 +3,10 @@ const container = document.querySelector('.inner-panier');
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
 function updateCart() {
-    document.querySelector('.cont-indicator').textContent = cart.length;
+    const totalQuantity = cart.reduce((sum, item) => sum + item.quantity, 0);
+    document.querySelectorAll('.cont-indicator').forEach(el =>{
+        el.textContent = totalQuantity;
+    });
 
     let cardPanier = '';
 
@@ -55,12 +58,17 @@ function updateCart() {
 function updateTotal() {
     const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
     document.querySelector('.Total').textContent = total + ' Fcfa';
+    
+    
 }
 
 updateCart();
 
 //open checkout
 document.querySelector('.Btn-Valider').addEventListener('click', function(){
+    if(cart.length === 0){
+        e.preventDefault()
+    }
     // Remplace le contenu par le loader immédiatement
     this.innerHTML = `<div class="loader"></div>`;
     
