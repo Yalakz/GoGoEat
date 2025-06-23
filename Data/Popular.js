@@ -39,5 +39,13 @@ export const PopularCard = [
         Prix: "1000",
         rate: 4.1,
     },
+    {   
+        id:"#P002",
+        Name:"P Frite",
+        Categorie:"Portion",
+        img: "../Img/Frite.webp",
+        Prix: 1000,
+        rate: 3.1,
+    },
     
 ];
